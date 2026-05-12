@@ -20,7 +20,7 @@ resource "aws_instance" "poc_server" {
   }
 }
 
-resource "aws_instance" "poc_server" {
+resource "aws_instance" "poc_server1" {
   ami           = "ami-0440d3b780d96b29d" 
   instance_type = "t3.micro" # Changed to t3 for Free Tier compatibility
 
