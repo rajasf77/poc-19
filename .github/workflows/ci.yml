@@ -1,20 +1,22 @@
-name: Continuous Integration
+name: POC-19 Ci & Cd
 
 on:
-  pull_request:
-    branches: [ main ]
   push:
-    branches: [ development ]
+    branches: [ main ]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - name: Testing
+        run: echo "CI: Checking code one  time... Pass!"
 
-      - name: Run Build and Test
+  deploy-to-production:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploying
         run: |
-          echo "Automated Build and Test starting..."
-          echo "Checking for bugs..."
-          echo "All checks passed!"
+          echo "CD: Launching ..."
+          echo "Your project is now LIVE on the server!"
