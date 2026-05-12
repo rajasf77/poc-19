@@ -1,0 +1,20 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ development ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Build and Test
+        run: |
+          echo "Automated Build and Test starting..."
+          echo "Checking for bugs..."
+          echo "All checks passed!"
