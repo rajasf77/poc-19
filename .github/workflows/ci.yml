@@ -1,24 +1,18 @@
 name: POC-19
-
 on:
   push:
-    branches: [ main ]
-
+    branches:
+      - main
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v4
       - name: Testing
-        run: echo "CI: Checking code one last time... Pass!"
-
-  deploy-to-production:
-    needs: build-and-test
+        run: echo "CI Pass"
+  deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploying
-        run: |
-          echo "CD: Launching Rocket Ship..."
-          echo "Your project is now LIVE on the server!"
+        run: echo "CD Pass"
