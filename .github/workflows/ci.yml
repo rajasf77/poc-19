@@ -1,4 +1,4 @@
-name: POC-19 
+name: POC-19
 
 on:
   push:
@@ -8,7 +8,9 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Testing
         run: echo "CI: Checking code one last time... Pass!"
 
