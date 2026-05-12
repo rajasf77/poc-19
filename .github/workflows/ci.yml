@@ -1,4 +1,4 @@
-name: POC-19 Ci & Cd
+name: POC-19 
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Testing
-        run: echo "CI: Checking code one  time... Pass!"
+        run: echo "CI: Checking code one last time... Pass!"
 
   deploy-to-production:
     needs: build-and-test
@@ -18,5 +18,5 @@ jobs:
     steps:
       - name: Deploying
         run: |
-          echo "CD: Launching ..."
+          echo "CD: Launching Rocket Ship..."
           echo "Your project is now LIVE on the server!"
