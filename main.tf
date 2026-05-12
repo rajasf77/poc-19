@@ -1,4 +1,9 @@
 terraform {
+  backend "s3" {
+    bucket = "terraform-rajjaaa77"
+    key    = "state/terraform.tfstate"
+    region = "us-east-1"
+  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -8,23 +13,23 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1" 
+  region = "us-east-1"
 }
 
 resource "aws_instance" "poc_server" {
-  ami           = "ami-0440d3b780d96b29d" 
-  instance_type = "t3.micro" # Changed to t3 for Free Tier compatibility
+  ami           = "ami-0440d3b780d96b29d"
+  instance_type = "t3.micro"
 
   tags = {
-    Name = "POC-19-Production-Server"
+    Name = "POC-19"
   }
 }
 
-resource "aws_instance" "poc_server1" {
-  ami           = "ami-0440d3b780d96b29d" 
-  instance_type = "t3.micro" # Changed to t3 for Free Tier compatibility
+resource "aws_instance" "poc_server" {
+  ami           = "ami-0440d3b780d96b29d"
+  instance_type = "t3.micro"
 
   tags = {
-    Name = "POC-test-live"
+    Name = "POC-live"
   }
 }
